@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void clearData() {
         edtYear.setText("");
         edtYear.setError(null);
+        viewModel.clear();
     }
 
     private void findLeapYear(String inputYear) {
