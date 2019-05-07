@@ -19,6 +19,7 @@ public class LeapYearViewModelTest {
 
     private static final int LEAP_YEAR = 1996;
     private static final int NOT_A_LEAP_YEAR = 1900;
+    public static final String EMPTY = "";
 
     @Rule
     public InstantTaskExecutorRule instantTaskExecutorRule = new InstantTaskExecutorRule();
@@ -36,28 +37,31 @@ public class LeapYearViewModelTest {
     public void shouldUpdateResultAsLeapYear_WhenInputIsLeapYear() {
         viewModel.find(LEAP_YEAR);
 
-        assertEquals("1996 is a Leap Year", viewModel.getResultLiveData().getValue());
+        assertResult("1996 is a Leap Year");
     }
 
     @Test
     public void shouldUpdateResultAsNotLeapYear_WhenInputIsNotLeapYear() {
         viewModel.find(NOT_A_LEAP_YEAR);
 
-        assertEquals("1900 is not a Leap Year", viewModel.getResultLiveData().getValue());
+        assertResult("1900 is not a Leap Year");
     }
 
     @Test
     public void shouldUpdateResultAsPreJulienYear_WhenInputIsPreJulienYear() {
         viewModel.find(400);
 
-        assertEquals("400 is a pre Julian Year, Year must be greater than 1581", viewModel.getResultLiveData().getValue());
+        assertResult("400 is a pre Julian Year, Year must be greater than 1581");
     }
 
     @Test
     public void shouldClearResult_WhenClearClicked() {
         viewModel.clear();
 
-        assertEquals("", viewModel.getResultLiveData().getValue());
+        assertResult(EMPTY);
+    }
 
+    private void assertResult(String expected) {
+        assertEquals(expected, viewModel.getResultLiveData().getValue());
     }
 }
