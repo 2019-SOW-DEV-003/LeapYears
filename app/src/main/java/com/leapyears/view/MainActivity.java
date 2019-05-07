@@ -24,20 +24,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LeapYearViewModel viewModel;
     private EditText edtYear;
     private TextView txtResult;
-    private Button btnFind;
-    private Button btnClear;
-    private ConstraintLayout container;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnFind = findViewById(R.id.button_find);
-        btnClear = findViewById(R.id.button_clear);
+        Button btnFind = findViewById(R.id.button_find);
+        Button btnClear = findViewById(R.id.button_clear);
         edtYear = findViewById(R.id.edt_leapyear);
         txtResult = findViewById(R.id.txt_result);
-        container = findViewById(R.id.container);
+        ConstraintLayout container = findViewById(R.id.container);
 
         ViewModelFactory factory = new ViewModelFactory(this.getApplication(), new LeapYear());
         viewModel = ViewModelProviders.of(this, factory).get(LeapYearViewModel.class);
