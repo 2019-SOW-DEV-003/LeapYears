@@ -1,13 +1,13 @@
 package com.leapyears.model;
 
-class LeapYear {
+public class LeapYear {
 
     private static final int JULIAN_CALANDER_START = 1582;
     private static final int HUNDRED = 100;
     private static final int FOUR_HUNDRES = 400;
     private static final int FOUR = 4;
 
-    boolean isLeapYear(int year) {
+    public boolean isLeapYear(int year) {
         return !isPreJulianYear(year) && (isLeap(year) || isSpecialLeapYear(year)) && !isSpecialNormalYear(year);
     }
 
