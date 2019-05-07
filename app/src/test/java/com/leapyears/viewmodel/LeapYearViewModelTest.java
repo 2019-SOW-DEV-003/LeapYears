@@ -12,6 +12,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static com.leapyears.viewmodel.LeapYearViewModel.LEAP_YEAR_RESULT;
+import static com.leapyears.viewmodel.LeapYearViewModel.NOT_A_LEAP_YEAR_RESULT;
+import static com.leapyears.viewmodel.LeapYearViewModel.PRE_JULIEN_RESULT;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -20,6 +23,7 @@ public class LeapYearViewModelTest {
     private static final int LEAP_YEAR = 1996;
     private static final int NOT_A_LEAP_YEAR = 1900;
     public static final String EMPTY = "";
+    public static final int PRE_JULIEN_YEAR = 400;
 
     @Rule
     public InstantTaskExecutorRule instantTaskExecutorRule = new InstantTaskExecutorRule();
@@ -37,21 +41,21 @@ public class LeapYearViewModelTest {
     public void shouldUpdateResultAsLeapYear_WhenInputIsLeapYear() {
         viewModel.find(LEAP_YEAR);
 
-        assertResult("1996 is a Leap Year");
+        assertResult(LEAP_YEAR + LEAP_YEAR_RESULT);
     }
 
     @Test
     public void shouldUpdateResultAsNotLeapYear_WhenInputIsNotLeapYear() {
         viewModel.find(NOT_A_LEAP_YEAR);
 
-        assertResult("1900 is not a Leap Year");
+        assertResult(NOT_A_LEAP_YEAR + NOT_A_LEAP_YEAR_RESULT);
     }
 
     @Test
     public void shouldUpdateResultAsPreJulienYear_WhenInputIsPreJulienYear() {
-        viewModel.find(400);
+        viewModel.find(PRE_JULIEN_YEAR);
 
-        assertResult("400 is a pre Julian Year, Year must be greater than 1581");
+        assertResult(PRE_JULIEN_YEAR + PRE_JULIEN_RESULT);
     }
 
     @Test
