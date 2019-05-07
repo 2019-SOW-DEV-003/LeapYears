@@ -52,13 +52,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.button_clear){
-            clearData();
+            clearInputData();
         } else if(v.getId() == R.id.button_find){
             findLeapYear(getInputYear());
         }
     }
 
-    private void clearData() {
+    private void clearInputData() {
         edtYear.setText("");
         edtYear.setError(null);
         viewModel.clear();
