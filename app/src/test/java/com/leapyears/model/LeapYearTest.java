@@ -13,6 +13,7 @@ public class LeapYearTest {
 
     private static final int NORMAL_YEAR = 2017;
     private static final int LEAP_YEAR = 2012;
+    public static final int SPECIAL_NORMAL_YEAR = 1800;
     private LeapYear model;
 
     @Before
@@ -32,5 +33,12 @@ public class LeapYearTest {
         boolean result = model.isLeapYear(LEAP_YEAR);
 
         assertTrue(result);
+    }
+
+    @Test
+    public void shouldReturnFalse_ForSpecialNormalYear() {
+        boolean result = model.isLeapYear(SPECIAL_NORMAL_YEAR);
+
+        assertFalse(result);
     }
 }
