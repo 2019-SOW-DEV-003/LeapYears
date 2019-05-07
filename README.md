@@ -38,6 +38,7 @@ To generate report of tests:
 $ ./gradlew build jacocoTestReport assembleAndroidTest
 ```
 ## Code Coverage Report
+![](https://github.com/2019-SOW-DEV-003/LeapYears/blob/master/report.png)
 
 ## Output
 ![](https://github.com/2019-SOW-DEV-003/LeapYears/blob/master/screenshot.gif)
