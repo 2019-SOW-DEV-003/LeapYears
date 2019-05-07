@@ -5,6 +5,7 @@ import android.arch.core.executor.testing.InstantTaskExecutorRule;
 
 import com.leapyears.model.LeapYear;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,26 +17,31 @@ import static org.junit.Assert.assertEquals;
 @RunWith(MockitoJUnitRunner.class)
 public class LeapYearViewModelTest {
 
+    private static final int LEAP_YEAR = 1996;
+    private static final int NOT_A_LEAP_YEAR = 1900;
+
     @Rule
     public InstantTaskExecutorRule instantTaskExecutorRule = new InstantTaskExecutorRule();
 
     @Mock
     private Application application;
+    private LeapYearViewModel viewModel;
+
+    @Before
+    public void setUp() {
+        viewModel = new LeapYearViewModel(application, new LeapYear());
+    }
 
     @Test
     public void shouldUpdateResultAsLeapYear_WhenInputIsLeapYear() {
-        LeapYearViewModel viewModel = new LeapYearViewModel(application, new LeapYear());
-
-        viewModel.find(1996);
+        viewModel.find(LEAP_YEAR);
 
         assertEquals("1996 is a Leap Year", viewModel.getResultLiveData().getValue());
     }
 
     @Test
     public void shouldUpdateResultAsNotLeapYear_WhenInputIsNotLeapYear() {
-        LeapYearViewModel viewModel = new LeapYearViewModel(application, new LeapYear());
-
-        viewModel.find(1900);
+        viewModel.find(NOT_A_LEAP_YEAR);
 
         assertEquals("1900 is not a Leap Year", viewModel.getResultLiveData().getValue());
     }
