@@ -30,4 +30,13 @@ public class LeapYearViewModelTest {
 
         assertEquals("1996 is a Leap Year", viewModel.getResultLiveData().getValue());
     }
+
+    @Test
+    public void shouldUpdateResultAsNotLeapYear_WhenInputIsNotLeapYear() {
+        LeapYearViewModel viewModel = new LeapYearViewModel(application, new LeapYear());
+
+        viewModel.find(1900);
+
+        assertEquals("1900 is not a Leap Year", viewModel.getResultLiveData().getValue());
+    }
 }
