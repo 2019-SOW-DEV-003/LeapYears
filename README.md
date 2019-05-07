@@ -3,7 +3,6 @@
 [![codecov](https://codecov.io/gh/2019-SOW-DEV-003/LeapYears/branch/master/graph/badge.svg)](https://codecov.io/gh/2019-SOW-DEV-003/LeapYears)
 
 ## Aim of this Project:
-
 As a user, I want to know if a year is a leap year, So that I can plan for an extra day on February 29th during those years.
 
 ## Acceptance Criteria:
@@ -12,17 +11,17 @@ As a user, I want to know if a year is a leap year, So that I can plan for an ex
 * All years divisible by 4 but not by 100 ARE leap years (e.g., 2008, 2012, 2016),
 * All years not divisible by 4 are NOT leap years (e.g. 2017, 2018, 2019).
 
-## Process followed:
+## Key points followed in this kata:
 * Followed Test Driven Developemnt
 * Used MVVM architectural pattern to seperate of development of the UI and business logic
 * Used Android's LiveData to notify changes to Activity
-* Added Test cases for all business logic
-* Added Android Test cases to test the UI.
+* Added Test cases for all business logic in Model and ViewModel
+* Added Android Test cases to test the View.
 * Integrated with Continous Integration tool (Travis CI) [![Build Status](https://travis-ci.org/2019-SOW-DEV-003/LeapYears.svg?branch=master)](https://travis-ci.org/2019-SOW-DEV-003/LeapYears) and Code coverage tool (codecov) [![codecov](https://codecov.io/gh/2019-SOW-DEV-003/LeapYears/branch/master/graph/badge.svg)](https://codecov.io/gh/2019-SOW-DEV-003/LeapYears).
 * Used Constraint Layout for designing UI
 
 ## Run
-To run this project:
+To run this project (make sure mobile is connected and usb debugging is enabled):
 
 ```
 $ ./gradlew installDebug
