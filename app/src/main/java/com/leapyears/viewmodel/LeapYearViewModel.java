@@ -19,7 +19,9 @@ class LeapYearViewModel extends AndroidViewModel {
     }
 
     public void find(int year) {
-        if(leapYearModel.isLeapYear(year)){
+        if(leapYearModel.isPreJulianYear(year)){
+            resultLiveData.setValue(year + " is a pre Julian Year, Year must be greater than 1581");
+        } else if(leapYearModel.isLeapYear(year)){
             resultLiveData.setValue(year + " is a Leap Year");
         } else{
             resultLiveData.setValue(year + " is not a Leap Year");

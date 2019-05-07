@@ -45,4 +45,11 @@ public class LeapYearViewModelTest {
 
         assertEquals("1900 is not a Leap Year", viewModel.getResultLiveData().getValue());
     }
+
+    @Test
+    public void shouldUpdateResultAsPreJulienYear_WhenInputIsPreJulienYear() {
+        viewModel.find(400);
+
+        assertEquals("400 is a pre Julian Year, Year must be greater than 1581", viewModel.getResultLiveData().getValue());
+    }
 }

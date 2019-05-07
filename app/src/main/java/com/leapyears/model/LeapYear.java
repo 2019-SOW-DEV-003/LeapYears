@@ -11,16 +11,16 @@ public class LeapYear {
         return !isPreJulianYear(year) && (isLeap(year) || isSpecialLeapYear(year)) && !isSpecialNormalYear(year);
     }
 
+    public boolean isPreJulianYear(int year) {
+        return year < JULIAN_CALANDER_START;
+    }
+
     private boolean isLeap(int year) {
         return isMultipleOf(year, FOUR) && !(isMultipleOf(year, HUNDRED));
     }
 
     private boolean isSpecialNormalYear(int year) {
         return isMultipleOf(year, HUNDRED) && !(isMultipleOf(year, FOUR_HUNDRES));
-    }
-
-    private boolean isPreJulianYear(int year) {
-        return year < JULIAN_CALANDER_START;
     }
 
     private boolean isSpecialLeapYear(int year) {
