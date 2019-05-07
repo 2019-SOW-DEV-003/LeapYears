@@ -10,6 +10,9 @@ import com.leapyears.model.LeapYear;
 
 public class LeapYearViewModel extends AndroidViewModel {
 
+    public static final String PRE_JULIEN_RESULT = " is a pre Julian Year, Year must be greater than 1581";
+    public static final String LEAP_YEAR_RESULT = " is a Leap Year";
+    public static final String NOT_A_LEAP_YEAR_RESULT = " is not a Leap Year";
     private final LeapYear leapYearModel;
     private MutableLiveData<String> resultLiveData = new MutableLiveData<>();
 
@@ -20,11 +23,11 @@ public class LeapYearViewModel extends AndroidViewModel {
 
     public void find(int year) {
         if(leapYearModel.isPreJulianYear(year)){
-            resultLiveData.setValue(year + " is a pre Julian Year, Year must be greater than 1581");
+            resultLiveData.setValue(year + PRE_JULIEN_RESULT);
         } else if(leapYearModel.isLeapYear(year)){
-            resultLiveData.setValue(year + " is a Leap Year");
-        } else{
-            resultLiveData.setValue(year + " is not a Leap Year");
+            resultLiveData.setValue(year + LEAP_YEAR_RESULT);
+        } else {
+            resultLiveData.setValue(year + NOT_A_LEAP_YEAR_RESULT);
         }
     }
 
