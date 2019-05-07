@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 
 import com.leapyears.model.LeapYear;
 
-class LeapYearViewModel extends AndroidViewModel {
+public class LeapYearViewModel extends AndroidViewModel {
 
     private final LeapYear leapYearModel;
     private MutableLiveData<String> resultLiveData = new MutableLiveData<>();
