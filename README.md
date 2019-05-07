@@ -18,6 +18,7 @@ As a user, I want to know if a year is a leap year, So that I can plan for an ex
 * Used Android's LiveData to notify changes to Activity
 * Added Test cases for all business logic
 * Added Android Test cases to test the UI.
+* Integrated with Continous Integration tool (Travis CI) [![Build Status](https://travis-ci.org/2019-SOW-DEV-003/LeapYears.svg?branch=master)](https://travis-ci.org/2019-SOW-DEV-003/LeapYears) and Code coverage tool (codecov) [![codecov](https://codecov.io/gh/2019-SOW-DEV-003/LeapYears/branch/master/graph/badge.svg)](https://codecov.io/gh/2019-SOW-DEV-003/LeapYears).
 * Used Constraint Layout for designing UI
 
 ## Run
