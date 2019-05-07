@@ -25,11 +25,17 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static com.leapyears.viewmodel.LeapYearViewModel.LEAP_YEAR_RESULT;
+import static com.leapyears.viewmodel.LeapYearViewModel.NOT_A_LEAP_YEAR_RESULT;
+import static com.leapyears.viewmodel.LeapYearViewModel.PRE_JULIEN_RESULT;
 import static org.junit.Assert.*;
 
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
 
+    private static final String PRE_JULIEN_YEAR = "400";
+    private static final String NOT_A_LEAP_YEAR = "2003";
+    private static final String LEAP_YEAR = "1996";
     @Rule
     public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
 
@@ -43,22 +49,32 @@ public class MainActivityTest {
 
     @Test
     public void shouldReturnLeapYear_When_EnteredLeapYear() {
-        inputYear("1996");
+        inputYear(LEAP_YEAR);
 
         onView(withId(R.id.button_find)).perform(click());
 
-        onView(withId(R.id.txt_result)).check(getViewAssertion(ViewMatchers.Visibility.VISIBLE));
-        assertEquals("1996 is a Leap Year", getText((withId(R.id.txt_result))));
+        onView(withId(R.id.txt_result)).check(getViewAssertion());
+        assertEquals(LEAP_YEAR + LEAP_YEAR_RESULT, getText((withId(R.id.txt_result))));
     }
 
     @Test
     public void shouldReturnNotALeapYear_When_EnteredNotALeapYear() {
-        inputYear("2003");
+        inputYear(NOT_A_LEAP_YEAR);
 
         onView(withId(R.id.button_find)).perform(click());
 
-        onView(withId(R.id.txt_result)).check(getViewAssertion(ViewMatchers.Visibility.VISIBLE));
-        assertEquals("2003 is not a Leap Year", getText((withId(R.id.txt_result))));
+        onView(withId(R.id.txt_result)).check(getViewAssertion());
+        assertEquals(NOT_A_LEAP_YEAR + NOT_A_LEAP_YEAR_RESULT, getText((withId(R.id.txt_result))));
+    }
+
+    @Test
+    public void shouldReturnPreJulienYear_When_EnteredPreJulienYear() {
+        inputYear(PRE_JULIEN_YEAR);
+
+        onView(withId(R.id.button_find)).perform(click());
+
+        onView(withId(R.id.txt_result)).check(getViewAssertion());
+        assertEquals(PRE_JULIEN_YEAR + PRE_JULIEN_RESULT, getText((withId(R.id.txt_result))));
     }
 
     private void inputYear(String s) {
@@ -67,11 +83,11 @@ public class MainActivityTest {
         onView(withId(R.id.edt_leapyear)).perform(closeSoftKeyboard());
     }
 
-    private ViewAssertion getViewAssertion(ViewMatchers.Visibility visible) {
-        return matches(ViewMatchers.withEffectiveVisibility(visible));
+    private ViewAssertion getViewAssertion() {
+        return matches(ViewMatchers.withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE));
     }
 
-    String getText(final Matcher<View> matcher) {
+    private String getText(final Matcher<View> matcher) {
         final String[] stringHolder = { null };
         onView(matcher).perform(new ViewAction() {
             @Override

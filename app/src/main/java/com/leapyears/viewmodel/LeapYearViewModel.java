@@ -10,9 +10,9 @@ import com.leapyears.model.LeapYear;
 
 public class LeapYearViewModel extends AndroidViewModel {
 
-    static final String PRE_JULIEN_RESULT = " is a pre Julian Year, Year must be greater than 1581";
-    static final String LEAP_YEAR_RESULT = " is a Leap Year";
-    static final String NOT_A_LEAP_YEAR_RESULT = " is not a Leap Year";
+    public static final String PRE_JULIEN_RESULT = " is a pre Julian Year, Year must be greater than 1581";
+    public static final String LEAP_YEAR_RESULT = " is a Leap Year";
+    public static final String NOT_A_LEAP_YEAR_RESULT = " is not a Leap Year";
     private final LeapYear leapYearModel;
     private MutableLiveData<String> resultLiveData = new MutableLiveData<>();
 
