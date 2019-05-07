@@ -2,8 +2,13 @@ package com.leapyears.model;
 
 class LeapYear {
 
+    private static final int JULIAN_CALANDER_START = 1582;
+    private static final int HUNDRED = 100;
+    private static final int FOUR_HUNDRES = 400;
+    private static final int FOUR = 4;
+
     boolean isLeapYear(int year) {
-        if(isJulianYear(year)){
+        if(isPreJulianYear(year)){
             return false;
         } else if(isSpecialLeapYear(year)){
             return true;
@@ -14,15 +19,15 @@ class LeapYear {
     }
 
     private boolean isLeap(int year) {
-        return isMultipleOf(year, 4) && !(isMultipleOf(year, 100));
+        return isMultipleOf(year, FOUR) && !(isMultipleOf(year, HUNDRED));
     }
 
     private boolean isSpecialNormalYear(int year) {
-        return isMultipleOf(year, 100) && !(isMultipleOf(year, 400));
+        return isMultipleOf(year, HUNDRED) && !(isMultipleOf(year, FOUR_HUNDRES));
     }
 
-    private boolean isJulianYear(int year) {
-        return year < 1582;
+    private boolean isPreJulianYear(int year) {
+        return year < JULIAN_CALANDER_START;
     }
 
     private boolean isSpecialLeapYear(int year) {
