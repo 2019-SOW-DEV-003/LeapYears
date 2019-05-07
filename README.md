@@ -11,9 +11,9 @@ As a user, I want to know if a year is a leap year, So that I can plan for an ex
 * All years divisible by 4 but not by 100 ARE leap years (e.g., 2008, 2012, 2016),
 * All years not divisible by 4 are NOT leap years (e.g. 2017, 2018, 2019).
 
-## Key points followed in this kata:
+## Key points to highlight about this kata:
 * Followed Test Driven Developemnt
-* Used MVVM architectural pattern to seperate of development of the UI and business logic
+* Used MVVM architectural pattern to seperate development of the UI and business logic
 * Used Android's LiveData to notify changes to Activity
 * Added Test cases for all business logic in Model and ViewModel
 * Added Android Test cases to test the View.
