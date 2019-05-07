@@ -3,7 +3,9 @@ package com.leapyears.model;
 class LeapYear {
 
     boolean isLeapYear(int year) {
-        if(isMultipleOf(year, 400)){
+        if(year < 1582){
+            return false;
+        } else if(isMultipleOf(year, 400)){
             return true;
         } else if(isMultipleOf(year, 100) && !(isMultipleOf(year, 400))){
             return false;
