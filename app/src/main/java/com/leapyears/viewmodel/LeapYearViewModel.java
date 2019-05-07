@@ -31,4 +31,8 @@ public class LeapYearViewModel extends AndroidViewModel {
     public LiveData<String> getResultLiveData() {
         return resultLiveData;
     }
+
+    public void clear() {
+        resultLiveData.setValue("");
+    }
 }

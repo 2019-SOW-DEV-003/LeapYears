@@ -52,4 +52,12 @@ public class LeapYearViewModelTest {
 
         assertEquals("400 is a pre Julian Year, Year must be greater than 1581", viewModel.getResultLiveData().getValue());
     }
+
+    @Test
+    public void shouldClearResult_WhenClearClicked() {
+        viewModel.clear();
+
+        assertEquals("", viewModel.getResultLiveData().getValue());
+
+    }
 }
