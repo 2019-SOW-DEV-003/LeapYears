@@ -36,6 +36,7 @@ public class MainActivityTest {
     private static final String PRE_JULIEN_YEAR = "400";
     private static final String NOT_A_LEAP_YEAR = "2003";
     private static final String LEAP_YEAR = "1996";
+    public static final String EMPTY = "";
     @Rule
     public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
 
@@ -75,6 +76,16 @@ public class MainActivityTest {
 
         onView(withId(R.id.txt_result)).check(getViewAssertion());
         assertEquals(PRE_JULIEN_YEAR + PRE_JULIEN_RESULT, getText((withId(R.id.txt_result))));
+    }
+
+    @Test
+    public void shouldClearError_When_ClearClicked() {
+        inputYear("");
+
+        onView(withId(R.id.button_clear)).perform(click());
+
+        onView(withId(R.id.txt_result)).check(getViewAssertion());
+        assertEquals(EMPTY, getText((withId(R.id.txt_result))));
     }
 
     private void inputYear(String s) {
