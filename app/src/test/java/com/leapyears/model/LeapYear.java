@@ -8,14 +8,7 @@ class LeapYear {
     private static final int FOUR = 4;
 
     boolean isLeapYear(int year) {
-        if(isPreJulianYear(year)){
-            return false;
-        } else if(isSpecialLeapYear(year)){
-            return true;
-        } else if(isSpecialNormalYear(year)){
-            return false;
-        } else
-            return isLeap(year);
+        return !isPreJulianYear(year) && (isLeap(year) || isSpecialLeapYear(year)) && !isSpecialNormalYear(year);
     }
 
     private boolean isLeap(int year) {
