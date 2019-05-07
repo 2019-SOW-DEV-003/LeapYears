@@ -43,9 +43,7 @@ public class MainActivityTest {
 
     @Test
     public void shouldReturnLeapYear_When_EnteredLeapYear() {
-        onView(withId(R.id.edt_leapyear)).perform(click());
-        onView(withId(R.id.edt_leapyear)).perform(typeText("1996"));
-        onView(withId(R.id.edt_leapyear)).perform(closeSoftKeyboard());
+        inputYear("1996");
 
         onView(withId(R.id.button_find)).perform(click());
 
@@ -55,14 +53,18 @@ public class MainActivityTest {
 
     @Test
     public void shouldReturnNotALeapYear_When_EnteredNotALeapYear() {
-        onView(withId(R.id.edt_leapyear)).perform(click());
-        onView(withId(R.id.edt_leapyear)).perform(typeText("2003"));
-        onView(withId(R.id.edt_leapyear)).perform(closeSoftKeyboard());
+        inputYear("2003");
 
         onView(withId(R.id.button_find)).perform(click());
 
         onView(withId(R.id.txt_result)).check(getViewAssertion(ViewMatchers.Visibility.VISIBLE));
         assertEquals("2003 is not a Leap Year", getText((withId(R.id.txt_result))));
+    }
+
+    private void inputYear(String s) {
+        onView(withId(R.id.edt_leapyear)).perform(click());
+        onView(withId(R.id.edt_leapyear)).perform(typeText(s));
+        onView(withId(R.id.edt_leapyear)).perform(closeSoftKeyboard());
     }
 
     private ViewAssertion getViewAssertion(ViewMatchers.Visibility visible) {
