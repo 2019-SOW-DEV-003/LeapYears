@@ -18,6 +18,9 @@ import com.leapyears.viewmodelfactory.ViewModelFactory;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    public static final String EMPTY_ERROR_MESSAGE = "Please enter a value";
+    public static final String EMPTY = "";
+
     private LeapYearViewModel viewModel;
     private EditText edtYear;
     private TextView txtResult;
@@ -49,15 +52,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.button_clear){
-            edtYear.setText("");
-            edtYear.setError(null);
+            clearData();
         } else if(v.getId() == R.id.button_find){
-            if(edtYear.getText().toString().equals("")){
-                edtYear.setError("Please enter a value");
-            } else{
-                viewModel.find(Integer.valueOf(edtYear.getText().toString()));
-            }
+            findLeapYear(getInputYear());
         }
+    }
+
+    private void clearData() {
+        edtYear.setText("");
+        edtYear.setError(null);
+    }
+
+    private void findLeapYear(String inputYear) {
+        if(inputYear.equals(EMPTY)){
+            edtYear.setError(EMPTY_ERROR_MESSAGE);
+        } else{
+            viewModel.find(Integer.valueOf(getInputYear()));
+        }
+    }
+
+    private String getInputYear() {
+        return edtYear.getText().toString();
     }
 
     private void addObserver() {
