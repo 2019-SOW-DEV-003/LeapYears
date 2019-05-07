@@ -26,7 +26,7 @@ To run this project (make sure mobile is connected and usb debugging is enabled)
 ```
 $ ./gradlew installDebug
 ```
-To run tests:
+To run tests (Junit and Espresso):
 
 ```
 $ ./gradlew build connectedCheck
@@ -35,7 +35,7 @@ $ ./gradlew build connectedCheck
 To generate report of tests:
 
 ```
-$ ./gradlew build jacocoTestReport assembleAndroidTest
+$ ./gradlew build jacocoTestReport assembleAndroidTest createDebugCoverageReport
 ```
 ## Code Coverage Report
 ![](https://github.com/2019-SOW-DEV-003/LeapYears/blob/master/report.png)
