@@ -34,7 +34,7 @@ matrix:
         - ./gradlew --version
         - echo y |adb devices
       script:
-        - ./gradlew installDebug
+        #- ./gradlew installDebug
         - ./gradlew build jacocoTestReport assembleAndroidTest
         #- ./gradlew connectedCheck
         #- ./gradlew createDebugCoverageReport
