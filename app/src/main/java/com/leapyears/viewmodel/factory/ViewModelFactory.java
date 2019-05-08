@@ -1,4 +1,4 @@
-package com.leapyears.viewmodelfactory;
+package com.leapyears.viewmodel.factory;
 
 import android.app.Application;
 import android.arch.lifecycle.ViewModel;

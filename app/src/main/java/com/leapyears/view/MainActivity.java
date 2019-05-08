@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.leapyears.R;
 import com.leapyears.model.LeapYear;
 import com.leapyears.viewmodel.LeapYearViewModel;
-import com.leapyears.viewmodelfactory.ViewModelFactory;
+import com.leapyears.viewmodel.factory.ViewModelFactory;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
