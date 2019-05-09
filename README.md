@@ -39,6 +39,7 @@ $ ./gradlew build jacocoTestReport assembleAndroidTest createDebugCoverageReport
 ```
 ## Code Coverage Report
 ![](https://github.com/2019-SOW-DEV-003/LeapYears/blob/master/report.png)
+![](https://github.com/2019-SOW-DEV-003/LeapYears/blob/master/codecoverage.png)
 ###### Note: There is some issue with uploading coverage to codecov. Android studio shows 100% code coverage whereas this tool shows 71.43% 
 
 ## Output
