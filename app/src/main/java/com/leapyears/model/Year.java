@@ -1,6 +1,6 @@
 package com.leapyears.model;
 
-public class LeapYear {
+public class Year {
 
     private static final int JULIAN_CALANDER_START = 1582;
     private static final int HUNDRED = 100;

@@ -9,7 +9,7 @@ import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 
 @RunWith(MockitoJUnitRunner.class)
-public class LeapYearTest {
+public class YearTest {
 
     private static final int NORMAL_YEAR = 2017;
     private static final int LEAP_YEAR = 2012;
@@ -17,11 +17,11 @@ public class LeapYearTest {
     private static final int SPECIAL_LEAP_YEAR = 2000;
     private static final int PRE_JULIEN_YEAR = 400;
 
-    private LeapYear model;
+    private Year model;
 
     @Before
     public void setUp() {
-        model = new LeapYear();
+        model = new Year();
     }
 
     @Test

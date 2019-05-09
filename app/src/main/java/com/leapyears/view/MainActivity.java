@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.leapyears.R;
-import com.leapyears.model.LeapYear;
+import com.leapyears.model.Year;
 import com.leapyears.viewmodel.LeapYearViewModel;
 import com.leapyears.viewmodel.factory.ViewModelFactory;
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtResult = findViewById(R.id.txt_result);
         ConstraintLayout container = findViewById(R.id.container);
 
-        ViewModelFactory factory = new ViewModelFactory(this.getApplication(), new LeapYear());
+        ViewModelFactory factory = new ViewModelFactory(this.getApplication(), new Year());
         viewModel = ViewModelProviders.of(this, factory).get(LeapYearViewModel.class);
 
         btnFind.setOnClickListener(this);

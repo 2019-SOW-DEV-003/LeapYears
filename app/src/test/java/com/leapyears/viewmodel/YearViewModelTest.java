@@ -3,7 +3,7 @@ package com.leapyears.viewmodel;
 import android.app.Application;
 import android.arch.core.executor.testing.InstantTaskExecutorRule;
 
-import com.leapyears.model.LeapYear;
+import com.leapyears.model.Year;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -18,7 +18,7 @@ import static com.leapyears.viewmodel.LeapYearViewModel.PRE_JULIEN_RESULT;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
-public class LeapYearViewModelTest {
+public class YearViewModelTest {
 
     private static final int LEAP_YEAR = 1996;
     private static final int NOT_A_LEAP_YEAR = 1900;
@@ -34,7 +34,7 @@ public class LeapYearViewModelTest {
 
     @Before
     public void setUp() {
-        viewModel = new LeapYearViewModel(application, new LeapYear());
+        viewModel = new LeapYearViewModel(application, new Year());
     }
 
     @Test
