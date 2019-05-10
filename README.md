@@ -24,7 +24,7 @@ As a user, I want to know if a year is a leap year, So that I can plan for an ex
 To run this project (make sure mobile is connected and usb debugging is enabled):
 
 ```
-$ ./gradlew installDebug
+$ ./gradlew build installDebug
 ```
 To run tests (Junit and Espresso):
 
